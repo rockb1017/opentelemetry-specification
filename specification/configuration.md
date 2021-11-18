@@ -126,6 +126,9 @@ In addition, at least one of the below configuration groups,
 > section. If Kubernetes secret keys are specified they will override the
 > values specified below. In short, `accessToken` and `token` are required only
 > if not specified in Kubernetes secrets.
+> `splunkPlatform.metricsEnabled` is `false` by default because there is no
+> default metrics type index unless user creates it. User need to specify
+> `splunkPlatform.metricsIndex` after creating the index.
 
 - `splunkObservability`
   - `accessToken` ()           : [REQUIRED] Access token added to exported data.
@@ -137,7 +140,7 @@ In addition, at least one of the below configuration groups,
   - `token` ()                 : [REQUIRED] Token added to exported data.
   - `endpoint` ()              : [REQUIRED] Where to send exported data.
   - `logsEnabled` (`true`)     : Whether logs are collected and sent.
-  - `metricsEnabled` (`true`)  : Whether metrics are collected, received, and sent.
+  - `metricsEnabled` (`false`) : Whether metrics are collected, received, and sent.
 
 Finally, the below Kubernetes secret configuration options MUST be
 supported:
